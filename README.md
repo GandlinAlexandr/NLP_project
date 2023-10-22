@@ -1,5 +1,6 @@
 <a name="readme-top"></a>
 
+
 [![MIT License][license-shield]][license-url]
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
 
@@ -65,7 +66,7 @@
 
 | url | title | date | abstract | text | tag |
 |----------|----------|----------|-|-|-|
-| url статьи   | Заголовок статьи   | Время публикации статьи   | Вступительный текст статьи | Полный текст статьи | Рубрика| 
+| url статьи   | Заголовок статьи   | Время публикации статьи   | Вступительный текст статьи | Основной текст статьи | Рубрика| 
 
 Датафрейм содержит данные по 30900 статьям, разбитых на десять рубрик:
 * `humanitarian-aid` - Гуманитарная помощь
