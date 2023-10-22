@@ -1,6 +1,7 @@
 <a name="readme-top"></a>
 
 [![MIT License][license-shield]][license-url]
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
 
   <h1 align="center">NLP-project</h1>
 
@@ -41,6 +42,8 @@
   * [![Pandas][Рandas.pydata.org]][Pandas-url]
   * [![Numpy][Numpy.org]][Numpy-url]
   * [![Matplotlib][Matplotlib.org]][Matplotlib-url]
+* [![GoogleColab][GoogleColab]][GoogleColab-url]
+* [![Kaggle][Kaggle]][Kaggle-url]
 
 <p align="right">(<a href="#readme-top">Вернуться к началу</a>)</p>
 
@@ -120,3 +123,9 @@ Pапустите ноутбук и последовательно выполн�
 
 [Matplotlib-url]: https://matplotlib.org/
 [Matplotlib.org]: https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black
+
+[GoogleColab-url]: https://colab.google/
+[GoogleColab]: https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252
+
+[Kaggle-url]: https://www.kaggle.com/
+[Kaggle]: https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white
