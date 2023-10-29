@@ -3,6 +3,7 @@
 
 [![MIT License][license-shield]][license-url]
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
+[!['Black'](https://img.shields.io/badge/code_style-black-black?style=for-the-badge)](https://github.com/psf/black)
 
   <h1 align="center">NLP-project</h1>
 
@@ -24,7 +25,7 @@
       <a href="#начало-работы">Начало работы</a>
     </li>
     <ul>
-    <li><a href="#реализация-парсера">Реализация парсера</a></li>
+    <li><a href="#готовые-данные">Готовые данные</a></li>
         <li><a href="#первичный-анализ-данных">Первичный анализ данных</a></li>
       </ul>
     <li><a href="#использование">Использование</a></li>
@@ -43,32 +44,45 @@
 
 Для реализации проекта использовались следующие технологии:
 
-* [![Python][Python.org]][Python-url]
-  * [![Pandas][Рandas.pydata.org]][Pandas-url]
-  * [![Numpy][Numpy.org]][Numpy-url]
-  * [![Matplotlib][Matplotlib.org]][Matplotlib-url]
 * [![Colab][Colab]][Colab-url]
 * [![Kaggle][Kaggle]][Kaggle-url]
+* [![Python][Python.org]][Python-url]
+  * [![Matplotlib][Matplotlib.org]][Matplotlib-url]
+  * [![Numpy][Numpy.org]][Numpy-url]
+  * [![Pandas][Рandas.pydata.org]][Pandas-url]
+  * [![scikit-learn][scikit-learn]][scikit-learn-url]
 
 <p align="right">(<a href="#readme-top">Вернуться к началу</a>)</p>
 
-
 ## Начало работы
 
-Запустите ноутбук и последовательно выполняйте ячейки. 
+Запустите ноутбук и последовательно выполняйте ячейки.
 
 На данном этапе проект состоит из двух частей:
-* Часть 1.1. Реализация парсера
-* Часть 1.2. Первичный анализ данных
+* Часть 1. Сбор данных
+  * Реализация парсера
+  * Первичный анализ данных
+  * Выводы
+* Часть 2. Векторизация текста и построение моделей
+  * Предобработка текста
+    * Word2Vec
+      * Подход с Tf-Idf
+      * Подход с усреднением векторов
+  * Логистическая регрессия
+  * Метод опорных векторов SVM
+  * Наивный байесовский метод
+  * Выводы
 
-### Реализация парсера
-Так как парсинг может занимать десятки часов, предоставляется ссылка на готовый [датафрейм](https://drive.google.com/file/d/13KoLBhEIwzeubdTehwK9ct25vvithZQf/view?usp=share_link), полученный с помощью данного парсера. Структура датафрейма:
+В репозитории имеется два файла: один работает со статьями, разбитыми по темам (`UN_project_topics.ipynb`), а другой работает со статьями, разбитыми по регионам (`UN_project_regions.ipynb`). **Наилучшие модели получились для данных по регионам**. Поэтому файл по топикам и соотвествующий датафрейм можно игнорировать - ничего не потеряете. Я добавил его, так как кучу времени на него убил и он меня кое-чему все-таки научил.
 
-| url | title | date | abstract | text | tag |
+### Готовые данные
+Так как парсинг может занимать десятки часов, предоставляется ссылка на готовые датафреймы по [тематике](https://drive.google.com/file/d/13KoLBhEIwzeubdTehwK9ct25vvithZQf/view?usp=share_link) (открыать в `UN_project_topics.ipynb` - вот [версия датафрейма](https://drive.google.com/file/d/1uHOhshi19zbu5tHdxE0bGXM_MOa39bs9/view?usp=drive_link) с обработанным текстом) и по [регионам](https://drive.google.com/file/d/1YNy0SBSPVAn9uE8Ah6d8VkWOGauxjcyq/view?usp=drive_link) (открывать в `UN_project_regions.ipynb` - вот [версия датафрейма](https://drive.google.com/file/d/1hM3IW8FzhQw_5Iz-gPCguN4KiI8bOL7j/view?usp=drive_link) с обработанным текстом), полученные с помощью данных парсеров. Структура датафреймов в общем виде:
+
+| url | title | date | abstract | text | topics / regions |
 |----------|----------|----------|-|-|-|
-| url статьи   | Заголовок статьи   | Время публикации статьи   | Вступительный текст статьи | Основной текст статьи | Рубрика| 
+| url статьи   | Заголовок статьи   | Время публикации статьи   | Вступительный текст статьи | Основной текст статьи | Рубрика или регион| 
 
-Датафрейм содержит данные по 30900 статьям, разбитых на десять рубрик:
+Датафрейм по тематикам содержит данные по 22065 статьям, разбитым на десять рубрик:
 * `humanitarian-aid` - Гуманитарная помощь
 * `women` - Женщины
 * `health` - Здравоохраниение
@@ -80,17 +94,12 @@
 * `human-rights` - Права человека
 * `economic-development` - Экономическое развитие
 
-Вы можете парсить сайт по данным тематикам самостоятельно, регулируя количество статей для каждой тематики с помощью переменной `DEPTH`.
-
-Вместо данных рубрик можно самостоятельно парсить сайт по географическим регионам:
+Датафрейм по регионам содержит данные по 18441 статьям и имеет следующие категории:
 * `asia-pacific` - Азия
 * `americas` - Америка
 * `africa` - Африка
 * `middle-east` - Ближний Восток
 * `europe` - Европа
-
-
-Для этого надо в цикле `# Сбор данных с сайта по рубрикам` заменить список `TOPIC` на список `REGION`, а в переменной `HOW_G` прописать `'/region/'`. Соответствующие пометки есть в коде.
 
 ### Первичный анализ данных
 
@@ -147,3 +156,6 @@
 
 [Kaggle-url]: https://www.kaggle.com/
 [Kaggle]: https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white
+
+[scikit-learn-url]: https://scikit-learn.org/
+[scikit-learn]: https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white
