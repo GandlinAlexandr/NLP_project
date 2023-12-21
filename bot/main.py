@@ -38,8 +38,8 @@ async def echo_message(message:types.Message):
     text = message.text
     DATE = '-'.join(text.split(' ')[0].split('.')[::-1])
     df = pd.read_pickle('df_regions.p', compression='gzip')
-    df['regions'] = ['europe', 'europe', 'asia-pacific', 'europe', 'europe', 'europe', 'europe', 'europe', 'europe',
-                     'europe']
+    #df['regions'] = ['europe', 'europe', 'asia-pacific', 'europe', 'europe', 'europe', 'europe', 'europe', 'europe',
+                     #'europe']
     df = Preprocessing_ML_hist.prep(df)
     x_text = df.text_clean.str.split()
     Log_Tf_Idf = cloudpickle.load(open('Log_Tf_Idf.pkl', 'rb'))
