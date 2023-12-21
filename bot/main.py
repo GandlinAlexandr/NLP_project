@@ -31,7 +31,7 @@ async def cmd_start(message: types.Message):
 @dp.message(Command("test2"))
 async def cmd_test2(message: types.Message):
     await message.reply("Test 2")
-Log_Tf_Idf = pickle.load(open('L.sav', 'rb'))
+
 # Хэндлер на сообщение
 @dp.message()
 async def echo_message(message:types.Message):
