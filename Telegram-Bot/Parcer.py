@@ -35,6 +35,7 @@ def get_page(page, DATE):
         link = BASE_URL[:-8] + ar.find("a").get("href")
         # Извлечение вступительного текста одной статьи
         response_one = requests.get(link)
+        time.sleep(SLEEP)
         soup_one = BeautifulSoup(response_one.content, "html.parser")
         abstract = soup_one.find(
             "div", {"class": "views-field views-field-field-news-story-lead"}
@@ -78,7 +79,6 @@ def all_pages(DATE):
         inf = get_page(page, DATE)
         if inf != 0:
             infa.extend(inf)
-            time.sleep(SLEEP)
         else:
             break
     if len(infa) == 0:
