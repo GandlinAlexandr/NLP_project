@@ -18,6 +18,7 @@ logger.add(LOGGING, format=FORMAT)
 def get_page(page, DATE):
     info = []
     response = requests.get(BASE_URL + "?f[0]=date%3A" + DATE + f"&page={page}")
+    time.sleep(SLEEP)
     soup = BeautifulSoup(response.content, "html.parser")
     articles = soup.find_all(
         "article",
@@ -35,7 +36,6 @@ def get_page(page, DATE):
         link = BASE_URL[:-8] + ar.find("a").get("href")
         # Извлечение вступительного текста одной статьи
         response_one = requests.get(link)
-        time.sleep(SLEEP)
         soup_one = BeautifulSoup(response_one.content, "html.parser")
         abstract = soup_one.find(
             "div", {"class": "views-field views-field-field-news-story-lead"}
