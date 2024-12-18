@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 
-[![MIT License][license-shield]][license-url]
+[![MIT][license-shield]][license-url]
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
 [!['Black'](https://img.shields.io/badge/code_style-black-black?style=for-the-badge)](https://github.com/psf/black)
 
@@ -171,7 +171,7 @@
 <p align="right">(<a href="#readme-top">Вернуться к началу</a>)</p>
 
 
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/GandlinAlexandr/NLP_project.svg?style=for-the-badge
 [license-url]: https://github.com/GandlinAlexandr/NLP_project/blob/main/LICENSE
 
 [Python-url]: https://python.org/
